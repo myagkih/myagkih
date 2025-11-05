@@ -10,7 +10,7 @@
 
 - На Windows:
 
-`git clone https://github.com/myagkih/myagkih.git && cd myagkih && python -m venv venv && venv/bin/activate && pip install -r requirements.txt && python main.py`
+`git clone https://github.com/myagkih/myagkih.git && cd myagkih && python -m venv venv && python -m pip install -r requirements.txt && winpty python main.py`
 
 ## Возможности проекта
 

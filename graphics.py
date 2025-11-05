@@ -32,7 +32,7 @@ def plot_function(expression: str, variable: str, x_min: float, x_max: float) ->
 
         y_vals = f(x_vals)
 
-        plt.figure(figsize=(14, 8))
+        plt.figure(figsize=(10, 6))
         plt.plot(x_vals, y_vals, 'b-', linewidth=2, label=f'${sp.latex(sp.sympify(expression))}$')
 
         plt.xlabel(f'${variable}$', fontsize=12)
