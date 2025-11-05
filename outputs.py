@@ -36,8 +36,10 @@ def deriv_output(n: int = 1):
     print("=" * 60)
 
     result = derivative(expression, variable, n)
-
-    print(f"Результат: d/d{variable}({expression}) = {result}")
+    if n > 1:
+        print(f"Результат: производная({expression} порядка n) = {result}")
+    else:
+        print(f"Результат: d/d{variable}({expression}) = {result}")
 
     print("=" * 60)
     return False
