@@ -1,5 +1,35 @@
 from calculus_core import *
 from integrals import *
+from graphics import *
+
+def graph_view():
+    expression = input("\nВведите математическое выражение: ").strip()
+
+    if expression.lower() == 'exit':
+        return True
+
+    variable = input("Введите переменную для оси X: ").strip()
+
+    if variable.lower() == 'exit':
+        return True
+
+    try:
+        x_min, x_max = 0, 0
+        input_ = input("Введите минимальное значение X: ").strip()
+        if input_ == "exit":
+            return True
+        else:
+            x_min = float(input_)
+
+        input_ = input("Введите максимальное значение X: ").strip()
+        if input_ == "exit":
+            return True
+        else:
+            x_max = float(input_)
+
+        print(plot_function(expression, variable, x_min, x_max))
+    except ValueError:
+        print("Ошибка: x_min и x_max должны быть числами")
 
 def integral_output():
     expression = input("\nВведите математическое выражение: ").strip()
