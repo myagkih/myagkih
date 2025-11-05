@@ -31,6 +31,8 @@ def main():
                 if par_deriv_output(): break
             elif number == 4:
                 if indf_integral_output(): break
+            elif number == 5:
+                if integral_output(): break
             else:
                 print("Введите целое число из списка!")
 

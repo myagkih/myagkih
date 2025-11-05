@@ -1,6 +1,34 @@
 from calculus_core import *
 from integrals import *
 
+def integral_output():
+    expression = input("\nВведите математическое выражение: ").strip()
+
+    if expression.lower() == 'exit':
+        return True
+
+    variable = input("Введите переменную интегрирования: ").strip()
+
+    if variable.lower() == 'exit':
+        return True
+
+    lower = input("Введите нижний предел: ").strip()
+
+    if lower.lower() == 'exit':
+        return True
+
+    upper = input("Введите верхний предел: ").strip()
+
+    if upper.lower() == 'exit':
+        return True
+
+    print("=" * 60)
+    result = definite_integral(expression, variable, lower, upper)
+    print(f"∫[{lower}→{upper}]({expression}) d{variable} = {result}")
+    print("=" * 60)
+
+    return False
+
 def indf_integral_output():
     expression = input("\nВведите математическое выражение: ").strip()
 
