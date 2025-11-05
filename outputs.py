@@ -1,4 +1,22 @@
 from calculus_core import *
+from integrals import *
+
+def indf_integral_output():
+    expression = input("\nВведите математическое выражение: ").strip()
+
+    if expression.lower() == 'exit':
+        return True
+
+    variable = input("Введите переменную интегрирования: ").strip()
+
+    if variable.lower() == 'exit':
+        return True
+
+    print("=" * 60)
+    result = indefinite_integral(expression, variable)
+    print(f"∫({expression}) d{variable} = {result}")
+    print("=" * 60)
+    return False
 
 def par_deriv_output():
     expression = input("\nВведите математическое выражение: ").strip()

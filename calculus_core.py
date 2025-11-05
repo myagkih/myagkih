@@ -55,12 +55,10 @@ def partial_derivative(expression: str, variables: str) -> str:
         if not variables or not variables.strip():
             return "Ошибка: Не указаны переменные дифференцирования"
 
-        parsed_expr = sp.sympify(expression)
-        result = parsed_expr
+        result = sp.sympify(expression)
 
         for var in variables:
-            sym_var = sp.Symbol(var)
-            result = sp.diff(result, sym_var)
+            result = sp.diff(result, sp.Symbol(var))
 
         simplified_result = sp.simplify(result)
         return str(simplified_result)
@@ -72,12 +70,36 @@ def partial_derivative(expression: str, variables: str) -> str:
 
 
 if __name__ == "__main__":
-    test_cases = [
-        ("x**2", "x"),
-        ("sin(x)", "x"),
-        ("invalid expression", "x"),
+    print("=" * 50)
+    print("ТЕСТЫ ПРОИЗВОДНЫХ")
+    print("=" * 50)
+
+    ordinary_tests = [
+        ("x**3", "x", 1),
+        ("sin(x)", "x", 1),
     ]
 
-    for expr, var in test_cases:
-        result = derivative(expr, var)
-        print(f"Производная {expr} по {var}: {result}")
+    for expr, var, order in ordinary_tests:
+        result = derivative(expr, var, order)
+        print(f"d/d{var}({expr}) = {result}")
+
+    print("\n" + "=" * 50)
+    print("ТЕСТЫ ЧАСТНЫХ ПРОИЗВОДНЫХ")
+    print("=" * 50)
+
+    partial_tests = [
+        ("x**2 + y**2", "x", "2*x"),
+        ("x**2 * y**3", "xy", "6*x*y**2"),
+        ("sin(x)*cos(y)", "x", "cos(x)*cos(y)")
+    ]
+
+    for expr, vars, expected in partial_tests:
+        result = partial_derivative(expr, vars)
+        print(f"∂^{len(vars)}/(∂{vars})({expr}) = {result}")
+
+    print("\n" + "=" * 50)
+    print("ТЕСТ ОШИБКИ")
+    print("=" * 50)
+    print(partial_derivative("", "x"))
+
+    print("=" * 50)

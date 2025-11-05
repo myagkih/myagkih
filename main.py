@@ -29,6 +29,8 @@ def main():
                     break
             elif number == 3:
                 if par_deriv_output(): break
+            elif number == 4:
+                if indf_integral_output(): break
             else:
                 print("Введите целое число из списка!")
 
