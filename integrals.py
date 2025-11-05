@@ -14,19 +14,19 @@ def indefinite_integral(expression: str, variable: str) -> str:
     """
     try:
         if len(variable) != 1:
-            return "Ошибка: Переменная должна быть одним символом"
+            return "Error: Variable must be a single character"
 
         if not expression or not expression.strip():
-            return "Ошибка: Выражение не может быть пустым"
+            return "Error: Expression cannot be empty"
 
         integral_result = sp.integrate(sp.sympify(expression), sp.Symbol(variable))
 
         return str(sp.simplify(integral_result))
 
     except sp.SympifyError:
-        return f"Ошибка: Некорректное выражение '{expression}'"
+        return f"Error: Invalid expression '{expression}'"
     except Exception as e:
-        return f"Ошибка при вычислении интеграла: {str(e)}"
+        return f"Error while calculating integral: {str(e)}"
 
 
 def definite_integral(expression: str, variable: str, lower_limit: str, upper_limit: str) -> str:
@@ -44,10 +44,10 @@ def definite_integral(expression: str, variable: str, lower_limit: str, upper_li
     """
     try:
         if len(variable) != 1:
-            return "Ошибка: Переменная должна быть одним символом"
+            return "Error: Variable must be a single character"
 
         if not expression or not expression.strip():
-            return "Ошибка: Выражение не может быть пустым"
+            return "Error: Expression cannot be empty"
 
         sym_var = sp.Symbol(variable)
         parsed_expr = sp.sympify(expression)
@@ -57,9 +57,9 @@ def definite_integral(expression: str, variable: str, lower_limit: str, upper_li
         return str(sp.simplify(integral_result))
 
     except sp.SympifyError:
-        return f"Ошибка: Некорректное выражение или пределы интегрирования"
+        return f"Error: Invalid expression or integration limits"
     except Exception as e:
-        return f"Ошибка при вычислении интеграла: {str(e)}"
+        return f"Error while calculating integral: {str(e)}"
 
 
 if __name__ == "__main__":
@@ -70,7 +70,7 @@ if __name__ == "__main__":
         ("exp(x)", "x"),
     ]
 
-    print("ТЕСТЫ НЕОПРЕДЕЛЕННЫХ ИНТЕГРАЛОВ")
+    print("INDEFINITE INTEGRAL TESTS")
     print("=" * 50)
 
     for expr, var in test_cases:
@@ -85,7 +85,7 @@ if __name__ == "__main__":
         ("exp(x)", "x", "0", "1"),
     ]
 
-    print("ТЕСТЫ ОПРЕДЕЛЕННЫХ ИНТЕГРАЛОВ")
+    print("DEFINITE INTEGRAL TESTS")
     print("=" * 50)
 
     for expr, var, lower, upper in test_cases:

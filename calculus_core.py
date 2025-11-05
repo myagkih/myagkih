@@ -15,13 +15,13 @@ def derivative(expression: str, variable: str, n: int = 1) -> str:
     """
     try:
         if len(variable) != 1 or not variable.isalpha():
-            return "Ошибка: Переменная должна быть одним символом"
+            return "Error: Variable must be a single character"
 
         if not expression or not expression.strip():
-            return "Ошибка: Выражение не может быть пустым"
+            return "Error: Expression cannot be empty"
 
         if n <= 0:
-            return "Ошибка: порядок должен быть больше 0"
+            return "Error: Order must be greater than 0"
 
         sym_var = sp.Symbol(variable)
 
@@ -32,9 +32,9 @@ def derivative(expression: str, variable: str, n: int = 1) -> str:
         return str(simplified_result)
 
     except sp.SympifyError:
-        return f"Ошибка: Некорректное выражение {expression}"
+        return f"Error: Invalid expression {expression}"
     except Exception as e:
-        return f"Ошибка при вычислении производной: {str(e)}"
+        return f"Error while calculating derivative: {str(e)}"
 
 
 def partial_derivative(expression: str, variables: str) -> str:
@@ -50,10 +50,10 @@ def partial_derivative(expression: str, variables: str) -> str:
     """
     try:
         if not expression or not expression.strip():
-            return "Ошибка: Выражение не может быть пустым"
+            return "Error: Expression cannot be empty"
 
         if not variables or not variables.strip():
-            return "Ошибка: Не указаны переменные дифференцирования"
+            return "Error: No differentiation variables specified"
 
         result = sp.sympify(expression)
 
@@ -64,14 +64,14 @@ def partial_derivative(expression: str, variables: str) -> str:
         return str(simplified_result)
 
     except sp.SympifyError:
-        return f"Ошибка: Некорректное выражение '{expression}'"
+        return f"Error: Invalid expression '{expression}'"
     except Exception as e:
-        return f"Ошибка при вычислении частной производной: {str(e)}"
+        return f"Error while calculating partial derivative: {str(e)}"
 
 
 if __name__ == "__main__":
     print("=" * 50)
-    print("ТЕСТЫ ПРОИЗВОДНЫХ")
+    print("DERIVATIVE TESTS")
     print("=" * 50)
 
     ordinary_tests = [
@@ -84,7 +84,7 @@ if __name__ == "__main__":
         print(f"d/d{var}({expr}) = {result}")
 
     print("\n" + "=" * 50)
-    print("ТЕСТЫ ЧАСТНЫХ ПРОИЗВОДНЫХ")
+    print("PARTIAL DERIVATIVE TESTS")
     print("=" * 50)
 
     partial_tests = [
@@ -98,7 +98,7 @@ if __name__ == "__main__":
         print(f"∂^{len(vars)}/(∂{vars})({expr}) = {result}")
 
     print("\n" + "=" * 50)
-    print("ТЕСТ ОШИБКИ")
+    print("ERROR TEST")
     print("=" * 50)
     print(partial_derivative("", "x"))
 

@@ -18,13 +18,13 @@ def plot_function(expression: str, variable: str, x_min: float, x_max: float) ->
     """
     try:
         if len(variable) != 1 or not variable.isalpha():
-            return "Ошибка: Переменная должна быть одним символом"
+            return "Error: Variable must be a single character"
 
         if not expression or not expression.strip():
-            return "Ошибка: Выражение не может быть пустым"
+            return "Error: Expression cannot be empty"
 
         if x_min >= x_max:
-            return "Ошибка: x_min должен быть меньше x_max"
+            return "Error: x_min must be less than x_max"
 
         f = sp.lambdify(sp.Symbol(variable), sp.sympify(expression), 'numpy')
 
@@ -42,12 +42,12 @@ def plot_function(expression: str, variable: str, x_min: float, x_max: float) ->
         plt.tight_layout()
         plt.show()
 
-        return "График успешно построен"
+        return "Graph plotted successfully"
 
     except sp.SympifyError:
-        return f"Ошибка: Некорректное выражение '{expression}'"
+        return f"Error: Invalid expression '{expression}'"
     except Exception as e:
-        return f"Ошибка при построении графика: {str(e)}"
+        return f"Error while plotting graph: {str(e)}"
 
 
 if __name__ == "__main__":
@@ -57,11 +57,11 @@ if __name__ == "__main__":
         ("exp(-x**2)", "x", -3, 3),
     ]
 
-    print("ТЕСТЫ ПОСТРОЕНИЯ ГРАФИКОВ")
+    print("GRAPH PLOTTING TESTS")
     print("=" * 50)
 
     for expr, var, xmin, xmax in test_cases:
-        print(f"Построение графика: {expr} на [{xmin}, {xmax}]")
+        print(f"Plotting graph: {expr} on [{xmin}, {xmax}]")
         result = plot_function(expr, var, xmin, xmax)
-        print(f"Результат: {result}")
+        print(f"Result: {result}")
         print("-" * 50)

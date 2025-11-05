@@ -2,16 +2,16 @@ from outputs import *
 
 def main():
     print("~" * 60)
-    print("КАЛЬКУЛЯТОР ДЛЯ МАТЕМАТИЧЕСКОГО АНАЛИЗА")
+    print("CALCULUS CALCULATOR")
     print("~" * 60)
-    print("Поддерживаются стандартные математические функции: sin, cos, log, exp и др.")
-    print("Для выхода введите 'exit'")
+    print("Supported standard mathematical functions: sin, cos, log, exp, etc.")
+    print("Enter 'exit' to quit")
     print("~" * 60)
 
     while True:
         try:
-            print("Введите номер операции из данного списка: \n1. производная, \n2. производная порядка n, \n3. частная производная, \
-             \n4. вычисление неопределенного интеграла, \n5. вычисление определенного интеграла, \n6. построение графика функции")
+            print("Enter operation number from the list: \n1. derivative, \n2. nth order derivative, \n3. partial derivative, \
+             \n4. indefinite integral, \n5. definite integral, \n6. function graph plotting")
             operation = input()
             if operation.lower() == "exit":
                 break
@@ -21,11 +21,11 @@ def main():
             if number == 1:
                 if deriv_output(): break
             elif number == 2:
-                print("Введите порядок дифференцирования:")
+                print("Enter differentiation order:")
                 n = input().lower()
                 if not n.isdigit():
                     if n == "exit": break
-                    print("Порядок дифференцирования должен быть целым числом!")
+                    print("Differentiation order must be an integer!")
                 elif deriv_output(int(n)):
                     break
             elif number == 3:
@@ -37,10 +37,10 @@ def main():
             elif number == 6:
                 if graph_view(): break
             else:
-                print("Введите целое число из списка!")
+                print("Enter an integer from the list!")
 
         except Exception as e:
-            print(f"Неожиданная ошибка: {str(e)}")
+            print(f"Unexpected error: {str(e)}")
 
 if __name__ == "__main__":
     main()

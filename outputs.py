@@ -3,25 +3,25 @@ from integrals import *
 from graphics import *
 
 def graph_view():
-    expression = input("\nВведите математическое выражение: ").strip()
+    expression = input("\nEnter mathematical expression: ").strip()
 
     if expression.lower() == 'exit':
         return True
 
-    variable = input("Введите переменную для оси X: ").strip()
+    variable = input("Enter variable for X axis: ").strip()
 
     if variable.lower() == 'exit':
         return True
 
     try:
         x_min, x_max = 0, 0
-        input_ = input("Введите минимальное значение X: ").strip()
+        input_ = input("Enter minimum X value: ").strip()
         if input_ == "exit":
             return True
         else:
             x_min = float(input_)
 
-        input_ = input("Введите максимальное значение X: ").strip()
+        input_ = input("Enter maximum X value: ").strip()
         if input_ == "exit":
             return True
         else:
@@ -29,25 +29,25 @@ def graph_view():
 
         print(plot_function(expression, variable, x_min, x_max))
     except ValueError:
-        print("Ошибка: x_min и x_max должны быть числами")
+        print("Error: x_min and x_max must be numbers")
 
 def integral_output():
-    expression = input("\nВведите математическое выражение: ").strip()
+    expression = input("\nEnter mathematical expression: ").strip()
 
     if expression.lower() == 'exit':
         return True
 
-    variable = input("Введите переменную интегрирования: ").strip()
+    variable = input("Enter integration variable: ").strip()
 
     if variable.lower() == 'exit':
         return True
 
-    lower = input("Введите нижний предел: ").strip()
+    lower = input("Enter lower limit: ").strip()
 
     if lower.lower() == 'exit':
         return True
 
-    upper = input("Введите верхний предел: ").strip()
+    upper = input("Enter upper limit: ").strip()
 
     if upper.lower() == 'exit':
         return True
@@ -60,12 +60,12 @@ def integral_output():
     return False
 
 def indf_integral_output():
-    expression = input("\nВведите математическое выражение: ").strip()
+    expression = input("\nEnter mathematical expression: ").strip()
 
     if expression.lower() == 'exit':
         return True
 
-    variable = input("Введите переменную интегрирования: ").strip()
+    variable = input("Enter integration variable: ").strip()
 
     if variable.lower() == 'exit':
         return True
@@ -77,12 +77,12 @@ def indf_integral_output():
     return False
 
 def par_deriv_output():
-    expression = input("\nВведите математическое выражение: ").strip()
+    expression = input("\nEnter mathematical expression: ").strip()
 
     if expression.lower() == 'exit':
         return True
 
-    variables = input("Введите переменные дифференцирования (например, 'xy'): ").strip()
+    variables = input("Enter differentiation variables (e.g., 'xy'): ").strip()
 
     if variables.lower() == 'exit':
         return True
@@ -94,28 +94,27 @@ def par_deriv_output():
 
     return False
 
-
 def deriv_output(n: int = 1):
-    expression = input("\nВведите математическое выражение: ").strip()
+    expression = input("\nEnter mathematical expression: ").strip()
 
     if expression.lower() == 'exit':
         return True
 
-    variable = input("Введите переменную дифференцирования (один символ): ").strip()
+    variable = input("Enter differentiation variable (single character): ").strip()
 
     if variable.lower() == 'exit':
         return True
 
     print("\n" + "=" * 60)
-    print(f"Выражение: {expression}")
-    print(f"Переменная: {variable}")
+    print(f"Expression: {expression}")
+    print(f"Variable: {variable}")
     print("=" * 60)
 
     result = derivative(expression, variable, n)
     if n > 1:
-        print(f"Результат: производная({expression} порядка n) = {result}")
+        print(f"Result: derivative({expression} of order {n}) = {result}")
     else:
-        print(f"Результат: d/d{variable}({expression}) = {result}")
+        print(f"Result: d/d{variable}({expression}) = {result}")
 
     print("=" * 60)
     return False
