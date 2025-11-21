@@ -1,5 +1,4 @@
-venv/
-calculus_venv/
+calculus_venv
 __pycache__
 .idea/
 src/modules/__pycache__
