@@ -6,11 +6,11 @@
 
 - На Linux и Mac:
 
-`git clone https://github.com/myagkih/myagkih.git && cd myagkih && python3 -m venv venv && source venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt && python3 main.py`
+`git clone https://github.com/myagkih/myagkih.git && cd myagkih && python3 -m venv venv && source venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt && python3 src/main.py`
 
 - На Windows:
 
-`git clone https://github.com/myagkih/myagkih.git && cd myagkih && python -m venv venv && pip install --upgrade pip && python -m pip install -r requirements.txt && winpty python main.py`
+`git clone https://github.com/myagkih/myagkih.git && cd myagkih && python -m venv venv && pip install --upgrade pip && python -m pip install -r requirements.txt && winpty python src/main.py`
 
 ## Возможности проекта
 
