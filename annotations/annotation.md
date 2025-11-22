@@ -89,7 +89,7 @@
    ```
 
 ## Структура проекта
-
+```
 myagkih/
 ├── README.md
 ├── requirements.txt
@@ -106,18 +106,17 @@ myagkih/
 │
 └── annotations/
     └── annotation.md
-
+```
 ### Описание файлов:
 
 - **README.md** - основная документация проекта
 - **requirements.txt** - список зависимостей Python
 - **src/main.py** - точка входа в приложение
-- **src/modules/calculus_core.py** - ядро математических вычислений
+- **src/modules/calculus_core.py** - работа с производными
 - **src/modules/integrals.py** - модуль работы с интегралами
 - **src/modules/outputs.py** - модуль вывода и форматирования
 - **src/modules/graphics.py** - модуль визуализации и графиков
-- **annotations/annotation.md** - подробная инструкция по работе с проектом
-```
+- **annotations/annotation.md** - подробная инструкция по работе с проектом и документация
 
 ## Возможности проекта
 
