@@ -81,3 +81,9 @@
    ```bash
    winpty python src/main.py
    ```
+### Необходимые технические требования:
+
+    - Python 3.8
+    - [requirements.txt](../requirements.txt)
+    - git *на Linux и MacOS*
+    - git bash *на Windows*

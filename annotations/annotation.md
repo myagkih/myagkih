@@ -25,7 +25,7 @@ myagkih/
 ```
 ### Описание файлов:
 
-- **README.md** - основная документация проекта
+- **README.md** - шапка профиля
 - **requirements.txt** - список зависимостей Python
 - **src/main.py** - точка входа в приложение
 - **src/modules/calculus_core.py** - работа с производными
