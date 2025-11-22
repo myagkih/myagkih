@@ -88,6 +88,37 @@
    winpty python src/main.py
    ```
 
+## Структура проекта
+
+myagkih/
+├── README.md
+├── requirements.txt
+├── .gitignore
+│
+├── src/
+│   ├── main.py
+│   │
+│   └── modules/
+│       ├── calculus_core.py 
+│       ├── integrals.py
+│       ├── outputs.py
+│       └── graphics.py
+│
+└── annotations/
+    └── annotation.md
+
+### Описание файлов:
+
+- **README.md** - основная документация проекта
+- **requirements.txt** - список зависимостей Python
+- **src/main.py** - точка входа в приложение
+- **src/modules/calculus_core.py** - ядро математических вычислений
+- **src/modules/integrals.py** - модуль работы с интегралами
+- **src/modules/outputs.py** - модуль вывода и форматирования
+- **src/modules/graphics.py** - модуль визуализации и графиков
+- **annotations/annotation.md** - подробная инструкция по работе с проектом
+```
+
 ## Возможности проекта
 
 1. Вычисление производных n-ого порядка
